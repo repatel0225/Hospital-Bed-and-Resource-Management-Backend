@@ -1,22 +1,18 @@
-import mongoose, { connect } from "mongoose";
+import mongoose from "mongoose"
+import { env_config } from "./environment";
 
-// Change the db name
-export const connectToDB = async () => {
-  try {
-    await connect(
-      process.env.MONGO_DB_URL || "mongodb://localhost:27017/meet-up"
-    );
-  } catch (err) {
-    console.log("err", err);
-  }
-};
+const connectDB = async () => {
+    try {
+        const conn = await mongoose.connect(env_config.mongoUrl,
+            {
+                dbName: env_config.dbName,
+            }
+        );
+        console.log(`MongoDB connected: ${conn.connection.host}`)
+        console.log(`Port Connected: ${env_config.port}`)
+    } catch (error) {
+        console.error("Error connecting database",error)
+    }
+}
 
-const db = mongoose.connection;
-
-db.on("error", (error) => {
-  console.log("error", error);
-});
-
-db.once("open", () => {
-  console.log("Database connected successfully");
-});
+export default connectDB;

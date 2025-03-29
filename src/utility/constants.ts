@@ -39,6 +39,7 @@ export const MESSAGES = {
   MESSAGE_FAILURE: "Something went wrong",
   MESSAGE_SUCCESS: "Fetched successfully",
   INVALID_CREDENTIALS: "Invalid credentials",
+  PATIENT_CREATED_SUCCESSFULLY:"Patient Created Successfully",
 
   // Messages related to user operations
   EMAIL_ALREADY_EXIST: "Email already exists",
@@ -50,3 +51,4 @@ export const MESSAGES = {
 
   BOOKED_SUCCESSFULLY: "Booked Successfully"
 };
+
