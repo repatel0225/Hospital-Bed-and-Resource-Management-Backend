@@ -17,9 +17,14 @@ const userSchema = new Schema<IUser>(
     },
     role: {
       type: String,
-      default: "user",
+      enum: ['provider', 'doctor'],
+      required: true,
     },
-  },
-  { timestamps: true }
+    contactNo: {
+      type: Number,
+      required: true,
+    },
+  }
 );
+
 export const User = model<IUser>("users", userSchema);

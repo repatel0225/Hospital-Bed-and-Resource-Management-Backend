@@ -1,6 +1,6 @@
 import mongoose from "mongoose"
 import { env_config } from "./environment";
-
+ 
 const connectDB = async () => {
     try {
         const conn = await mongoose.connect(env_config.mongoUrl,
@@ -14,5 +14,5 @@ const connectDB = async () => {
         console.error("Error connecting database",error)
     }
 }
-
+ 
 export default connectDB;
